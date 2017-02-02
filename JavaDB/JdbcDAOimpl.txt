@@ -1,0 +1,63 @@
+package databasePackage.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.stereotype.Component;
+
+import databasePackage.model.Circle;
+
+@Component
+public class JdbcDAOimpl 
+{
+	public Circle getCircle(int circleId)
+	{
+		Connection conn = null;
+		
+		String url = "jdbc:mysql://localhost:3306/springtestdb";
+		String userName = "myUser1";
+		String password = "MYPASSWORD1";
+		
+		
+		try
+		{
+		conn = DriverManager.getConnection(url, userName, password);
+		PreparedStatement ps = conn.prepareStatement("SELECT * FROM circle WHERE id = ?");
+		ps.setInt(1, circleId);
+		
+		Circle circle = null;
+		ResultSet rs = ps.executeQuery();
+		
+		if(rs.next())
+		{
+			circle = new Circle(circleId, rs.getString("name"));
+		}
+		
+		rs.close();
+		ps.close();
+		
+		return circle;
+		}
+		catch(Exception e)
+		{
+			throw new RuntimeException(e);
+		}
+		finally
+		{
+			try 
+			{
+				conn.close();
+			} 
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+}

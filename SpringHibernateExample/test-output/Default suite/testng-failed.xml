@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.websystique.springmvc.configuration.AppControllerTest">
+        <methods>
+          <include name="newEmployee"/>
+          <include name="saveEmployeeWithValidationError"/>
+          <include name="saveEmployeeWithValidationErrorNonUniqueSSN"/>
+          <include name="listEmployees"/>
+          <include name="saveEmployeeWithSuccess"/>
+          <include name="deleteEmployee"/>
+          <include name="editEmployee"/>
+          <include name="setUp"/>
+          <include name="updateEmployeeWithValidationError"/>
+          <include name="updateEmployeeWithValidationErrorNonUniqueSSN"/>
+          <include name="updateEmployeeWithSuccess"/>
+        </methods>
+      </class> <!-- com.websystique.springmvc.configuration.AppControllerTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="tests">
+	<test name="front-end">
+		<classes>
+			<class name="com.websystique.testng.TestUI"></class>
+		</classes>
+	</test>
+	
+	<test name="back-end">
+		<classes>
+			<class name="com.websystique.testng.TestSecurity" />
+            <class name="com.websystique.testng.TestDataBase" />
+            <class name="com.websystique.testng.TestBackendConfig" />
+		</classes>
+	</test>
+</suite>
