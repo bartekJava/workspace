@@ -1,0 +1,105 @@
+git log --author="XXXXX"
+git log --grep="random_text"   //regular expression, search text in commit messages
+git log SHA.. file_name   //showing every commit referring to that file
+git log -p SHA.. file_name   //showing every commit referring to that file + diff
+git log --graph --oneline --all --decorate
+git diff   //difference between working directory and repository
+git diff --staged   //difference between staging index and repository
+git diff --color-words
+git diff SHA (file_name)
+git diff SHA1..SHA2 (file_name)
+git diff -b   //ignore changes to whitespace
+git show SHA   //shows diff for that commit
+cat .git/config
+
+
+
+DELETING FILE:
+1. delete file from working directory
+2. use "git rm file_name" command to add this change to the staging index
+3. commit this change to the repository
+
+
+
+RENAMING FILE: 
+I.
+	1. Rename file.
+	2. git status
+	3. git add filename_after_rename
+	4. git rm filename_before_rename
+	5. git status
+	6. git commit
+
+II.
+	1. git mv filename_before_rename filename_after_rename
+	2. git commit
+
+
+
+RESOLVING CONFLICT
+	1. Edit files that have a conflict manually
+	2. Add change
+	3. Commit (default message)
+
+
+
+git mv file_name directory_name/file_name   //moving file, we can rename at the same time
+git commit -am "message"   //add+commit; doesn't work for untracked files and deleted files
+git checkout -- file_name   //replace file in working directory with the one from the repository; "--" - indicate that we're not checking out new branch, only the file on current branch	 
+git checkout SHA -- file_name
+git reset HEAD file_name   //"remove file" from staging index (put it to working directory) by changing staging index to match repository   $$$$$$$$$$$$$$$$$$$$$$
+git commit --amend -m   //edit last commit (adding changed files to last commit; editing commit message)
+git revert SHA   //undo last commit by making a new commit that reverts it
+git reset --soft SHA   //moves the HEAD, doesn't change staging index or working directory
+git reset --mixed SHA (file_name)   //moves the HEAD, changes the staging index to match the repository(default)
+git reset --hard SHA   //moves the HEAD, makes staging index and working directory match the repository
+git clean -f   //deleting untracked files; delete files from working directory which are not in the repository
+git rm -cached file_name   //ignoring tracked file (removing it from staging index) 
+git ls-tree <tree-ish>(^; ~1)   //return the list of files at that point; tree-ish: HEAD, SHA, branch_name (ex. master) etc...
+
+
+
+git branch   //shows all local branches
+git branch -a   //shows all branches + remote branches
+git branch <branch_name>   //create new branch
+git checkout <branch_name>   //switch branch; makes working directory look like that branch
+git checkout -b <branch_name>   //create new branch and switch to it
+git branch --merged   //find out whether current branch completely contains other branches
+git branch -m <branch_name_1> <branch_name_2>   //rename branch
+git branch -d <branch_name_1>   //delete branch
+git diff <branch_name_1>..<branch_name_2>   //shows differences between branches
+git merge <branch_name>   //merging <branch_name> into branch that we're on
+git log <branch_name>   //showing log of other branch
+git merge --abort
+
+
+
+git stash save "<message>"
+git stash list
+git stash show (-p) stash@{}
+git stash pop stash@{}   //pull out what's in the stash and remove it from the stash
+git stash apply stash@{}   //pull out what's in the stash and leave a copy
+git stash drop stash@{}   //delete
+git stash clear   //delete all stashed changes
+
+
+
+git remote   //gives list of all remotes
+git remote -v   //gives url's for push and fetch
+git remote add <remote_name(origin)> <url>  //create connection
+git push -u <remote_name(origin)> <branch_name>   //push branch to remote repo
+git branch -r   //shows remote branches
+git clone <url> (directory_name)
+git clone -b <branch_name> <url>   //clone specific branch
+git branch --set-upstream <non_tracking_branch_name> <remote_name(origin)>/<non_tracking_branch_name>   //make the branch tracking remote repo
+git log <remote_name(origin)>/master
+git push
+git fetch (<remote_name(origin)>)   //no need to type remote name if there's only one remote repository
+git log -p <branch_name>..<remote_branch_name(ex. origin/<branch_name)>   //showing log + diff
+git merge <remote_name(origin)>/master
+git pull   //git fetch + git merge
+
+git branch <branch_name> <remote_branch_name(ex. origin/<branch_name)>   //get remote branch
+git checkout -b <branch_name> <remote_branch_name(ex. origin/<branch_name)>   //copy remote branch from repo and check it out
+
+git push <remote_name(origin)> --delete <branch_name>   //delete a remote branch
