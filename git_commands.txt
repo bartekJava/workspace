@@ -47,7 +47,7 @@ git mv file_name directory_name/file_name   //moving file, we can rename at the 
 git commit -am "message"   //add+commit; doesn't work for untracked files and deleted files
 git checkout -- file_name   //replace file in working directory with the one from the repository; "--" - indicate that we're not checking out new branch, only the file on current branch	 
 git checkout SHA -- file_name
-git reset HEAD file_name   //"remove file" from staging index (put it to working directory) by changing staging index to match repository   $$$$$$$$$$$$$$$$$$$$$$
+git reset HEAD file_name   //"remove file" from staging index (put it to working directory) by changing staging index to match repository
 git commit --amend -m   //edit last commit (adding changed files to last commit; editing commit message)
 git revert SHA   //undo last commit by making a new commit that reverts it
 git reset --soft SHA   //moves the HEAD, doesn't change staging index or working directory
