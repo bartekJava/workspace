@@ -1,4 +1,4 @@
-var app = angular.module('CrudApp', ['ui.router','ngStorage']);
+var app = angular.module('crudApp',['ui.router','ngStorage']);
 
 app.constant('urls', {
     BASE: 'http://localhost:8080/SpringBootCRUDApp',
@@ -6,7 +6,8 @@ app.constant('urls', {
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
-    function() {
+    function($stateProvider, $urlRouterProvider) {
+
         $stateProvider
             .state('home', {
                 url: '/',
@@ -14,11 +15,14 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 controller:'UserController',
                 controllerAs:'ctrl',
                 resolve: {
-                    users: function($q, UserService) {
+                    users: function ($q, UserService) {
                         console.log('Load all users');
-                        
+                        var deferred = $q.defer();
+                        UserService.loadAllUsers().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
                     }
                 }
             });
-
+        $urlRouterProvider.otherwise('/');
     }]);
+
