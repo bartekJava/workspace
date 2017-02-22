@@ -3,21 +3,17 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.websystique.springmvc.configuration.AppControllerTest">
+      <class name="com.websystique.springmvc.dao.EmployeeDaoImplTest">
         <methods>
-          <include name="newEmployee"/>
-          <include name="saveEmployeeWithValidationError"/>
-          <include name="saveEmployeeWithValidationErrorNonUniqueSSN"/>
-          <include name="listEmployees"/>
-          <include name="saveEmployeeWithSuccess"/>
-          <include name="deleteEmployee"/>
-          <include name="editEmployee"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="findAllEmployees"/>
           <include name="setUp"/>
-          <include name="updateEmployeeWithValidationError"/>
-          <include name="updateEmployeeWithValidationErrorNonUniqueSSN"/>
-          <include name="updateEmployeeWithSuccess"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextAfterTestMethod"/>
         </methods>
-      </class> <!-- com.websystique.springmvc.configuration.AppControllerTest -->
+      </class> <!-- com.websystique.springmvc.dao.EmployeeDaoImplTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
