@@ -6,7 +6,9 @@ git log --graph --oneline --all --decorate
 git diff   //difference between working directory and repository
 git diff --staged   //difference between staging index and repository
 git diff --color-words
-git diff SHA (file_name)
+git diff SHA   //differences between the directory at that point of time and current directory
+git diff SHA file_name
+git diff SHA1..SHA2
 git diff SHA1..SHA2 (file_name)
 git diff -b   //ignore changes to whitespace
 git show SHA   //shows diff for that commit
@@ -46,8 +48,8 @@ RESOLVING CONFLICT
 git mv file_name directory_name/file_name   //moving file, we can rename at the same time
 git commit -am "message"   //add+commit; doesn't work for untracked files and deleted files
 git checkout -- file_name   //replace file in working directory with the one from the repository; "--" - indicate that we're not checking out new branch, only the file on current branch	 
-git checkout SHA -- file_name
-git reset HEAD file_name   //"remove file" from staging index (put it to working directory) by changing staging index to match repository
+git checkout SHA -- file_name   //replace file in staging index with the one from the repository
+git reset HEAD file_name   //"remove file" from staging index by changing staging index to match repository
 git commit --amend -m   //edit last commit (adding changed files to last commit; editing commit message)
 git revert SHA   //undo last commit by making a new commit that reverts it
 git reset --soft SHA   //moves the HEAD, doesn't change staging index or working directory
@@ -103,3 +105,15 @@ git branch <branch_name> <remote_branch_name(ex. origin/<branch_name)>   //get r
 git checkout -b <branch_name> <remote_branch_name(ex. origin/<branch_name)>   //copy remote branch from repo and check it out
 
 git push <remote_name(origin)> --delete <branch_name>   //delete a remote branch
+
+
+
+git config --global core.excludesfile <directory>/.gitignore_global   //global ignoring
+cat <directory>/.gitconfig  //check configuration
+
+
+
+
+git config --global user.name ""
+git config --global user.email ""
+git config --global core.editor "notepad.exe"

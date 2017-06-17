@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Form Demo</title>
+    <style>
+        .username.ng-valid {
+            background-color: lightgreen;
+        }
+
+        .username.ng-dirty.ng-invalid-required {
+            background-color: red;
+        }
+
+        .username.ng-dirty.ng-invalid-minlength {
+            background-color: yellow;
+        }
+
+        .email.ng-valid {
+            background-color: lightgreen;
+        }
+
+        .email.ng-dirty.ng-invalid-required {
+            background-color: red;
+        }
+
+        .email.ng-dirty.ng-invalid-email {
+            background-color: yellow;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body ng-app="myApp">
+    <div class="generic-container" ng-controller="AppController as ctrl">
+        <div class="panel panel-default">
+            <div class="panel-heading"><span class="lead">User Registration Form </span></div>
+            <div class="formcontainer">
+                <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                    <input type="hidden" ng-model="ctrl.user.id" />
+                    <input type="text" ng-model="ctrl.user.username" name="uname" class="username" placeholder="Enter your name" required ng-minlength="3"
+                    /><br><br>
+                    <span ng-show="myForm.$dirty && myForm.uname.$error.required">This is a required field</span>
+                    <span ng-show="myForm.$dirty && myForm.uname.$error.minlength">Minimum length required is 3</span>
+                    <span ng-show="myForm.$dirty && myForm.uname.$invalid">This field is invalid</span><br/><br/>
+
+                    <input type="text" ng-model="ctrl.user.address" placeholder="Enter your address" /><br><br>
+
+                    <input type="email" ng-model="ctrl.user.email" name="email" class="email" placeholder="Enter your email" required /><br><br>
+                    <span ng-show="myForm.$dirty && myForm.email.$error.required">This is a required field</span>
+                    <span ng-show="myForm.$dirty && myForm.email.$invalid">This field is invalid</span><br/><br/>
+
+                    <input type="submit" value="Submit" ng-disabled="myForm.$invalid">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js">
+
+    </script>
+    <script>
+        angular.module('myApp', [])
+            .controller('AppController', [function () {
+                var self = this;
+                self.submit = function () {
+                    console.log('Form is submitted with following user: ', self.user)
+                }
+            }])
+    </script>
+</body>
+
+</html>
