@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="5759" started-at="2017-09-08T15:11:11Z" finished-at="2017-09-08T15:11:16Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="5759" started-at="2017-09-08T15:11:11Z" finished-at="2017-09-08T15:11:16Z">
+      <class name="pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest@2f7298b]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="9" started-at="2017-09-08T17:11:11Z" finished-at="2017-09-08T17:11:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest@2f7298b]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="5287" started-at="2017-09-08T17:11:11Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2017-09-08T17:11:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest@2f7298b]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="21" started-at="2017-09-08T17:11:16Z" finished-at="2017-09-08T17:11:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest.saveBorrow()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest@2f7298b]" name="setUp" is-config="true" duration-ms="25" started-at="2017-09-08T17:11:16Z" finished-at="2017-09-08T17:11:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="saveBorrow()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest@2f7298b]" name="saveBorrow" duration-ms="268" started-at="2017-09-08T17:11:16Z" finished-at="2017-09-08T17:11:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveBorrow -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest@2f7298b]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="18" started-at="2017-09-08T17:11:16Z" finished-at="2017-09-08T17:11:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest.saveBorrow()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest@2f7298b]" name="springTestContextAfterTestClass" is-config="true" duration-ms="113" started-at="2017-09-08T17:11:16Z" finished-at="2017-09-08T17:11:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- pl.altkom.hibernatejpa.repositories.BorrowRepositoryTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

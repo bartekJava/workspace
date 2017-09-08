@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+	<item AVAILIBLE="true" ISBN="9781932394887" TITLE="Java Persistence with Hibernate"/>
+	
+	<book PUBLISH_YEAR="2006-10-1"/>
+	
+	<author FIRST_NAME="Christian" LAST_NAME="Bauer" />
+	<author FIRST_NAME="Gavin" LAST_NAME="King" />
+	
+	<borrower id="1" FIRST_NAME="John" LAST_NAME="Doe" SSN="70010100111" />
+
+</dataset>

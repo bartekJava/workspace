@@ -1,0 +1,2 @@
+- zapis do bazy danych nie działa przy zastosowaniu ID_GENERATOR, SEQUENCE ani AUTO strategy, jedynie przy IDENTITY (problem był spowodowany przez clean-insert z DBUnit);
+- nie działa testowanie z wiersza poleceń (mvn test): [TestNG] [ERROR] No test suite found. Nothing to run, działa przez TestNG Eclipse Plugin
