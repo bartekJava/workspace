@@ -9,5 +9,9 @@ import pl.altkom.hibernatejpa.model.Book;
 public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	Book findByTitle(String title);
-		
+	
+	Book findByIsbnNumber(String isbn);
+	
+	void deleteByIsbnNumber(String isbn);
+	
 }

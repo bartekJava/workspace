@@ -1,0 +1,31 @@
+<div *ngIf="book">
+    <div class="card" style="width: 35rem;">
+        <div class="card-body">
+            <h4 class="card-title">{{book.title}} details: </h4>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>ISBN: </strong>{{book.isbnNumber}}</li>
+                <li class="list-group-item"><strong>Title: </strong>{{book.title}}</li>
+                <li class="list-group-item"><strong>Author: </strong>{{book.author.firstName+" "+book.author.lastName}}</li>
+                <li class="list-group-item"><strong>Genres: </strong><span *ngFor="let genre of book.genres">{{genre.type+" "}}</span></li>
+                <li class="list-group-item"><strong>Page count: </strong>{{book.pageCount}}</li>
+                <li class="list-group-item"><strong>Publish date: </strong>{{book.publishDate}}</li>
+                <li class="list-group-item"><strong>Borrowed / availible: </strong>{{book.borrower ? 'borrwed' : 'availible'}}</li>
+                <li *ngIf=!book.borrower class="list-group-item">
+                    <div class="row">
+                        <div class="col-sm-4"><strong>Select Borrower: </strong></div>
+                        <div class="col-sm-8">
+                            <select class="form-control" [(ngModel)]="borrower">
+                                <option *ngFor="let borrower of borrowers" [ngValue]="borrower">{{borrower.firstName+" "+borrower.lastName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn btn-dark" (click)="goBack()">Back</button>
+            <button *ngIf=!book.borrower class="btn btn-dark" (click)="save()" >Borrow</button>
+        </div>
+    </div>
+    {{bookDiagnostic}}
+    <br>
+    {{borrowerDiagnostic}}
+</div>

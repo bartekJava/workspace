@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -20,10 +21,10 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import pl.altkom.hibernatejpa.utils.DbTypePropertyCondition;
+
 @Configuration
-@EnableJpaRepositories(basePackages = "pl.altkom.hibernatejpa.repositories",
-entityManagerFactoryRef = "entityManagerFactory",
-transactionManagerRef = "transactionManager")
+@EnableJpaRepositories(basePackages = "pl.altkom.hibernatejpa.repositories")
 @EnableTransactionManagement
 @PropertySource(value = { "classpath:application.properties" })
 public class JpaConfiguration {
@@ -32,6 +33,7 @@ public class JpaConfiguration {
 	private Environment environment;
 
 	@Bean
+	/*@Conditional(DbTypePropertyCondition.class)*/
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));

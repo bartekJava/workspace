@@ -6,17 +6,16 @@ import org.dbunit.database.DatabaseDataSourceConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.operation.DatabaseOperation;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.BeforeMethod;
 
+import pl.altkom.hibernatejpa.model.Borrower;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext
-@RunWith(SpringRunner.class)
 public abstract class EntityRepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 	
 	@Autowired
@@ -30,5 +29,14 @@ public abstract class EntityRepositoryTest extends AbstractTransactionalTestNGSp
     }
      
     protected abstract IDataSet getDataSet() throws Exception;
+    
+    public Borrower getSampleBorrower() {
+		Borrower borrower = new Borrower();
+		borrower.setFirstName("Name");
+		borrower.setLastName("Lastname");
+		borrower.setSsn("90030300333");
+				
+		return borrower;
+	}
  
 }

@@ -1,53 +1,36 @@
 package pl.altkom.hibernatejpa.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Author {
 
 	@Id
-	//@GeneratedValue(generator = "ID_GENERATOR")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="AUTHOR_ID")
 	private long id;
 
 	@NotNull
-	@Column(name = "FIRST_NAME", nullable = false)
+	@Column(name = "FIRST_NAME")
 	private String firstName;
 
 	@NotNull
-	@Column(name = "LAST_NAME", nullable = false)
+	@Column(name = "LAST_NAME")
 	private String lastName;
-
-	@ManyToMany(cascade = CascadeType.PERSIST)
-	@JoinTable(name = "AUTHOR_ITEM", joinColumns = @JoinColumn(name = "AUTHOR_ID"), inverseJoinColumns = @JoinColumn(name = "ITEM_ID"))
-	private Set<Book> books = new HashSet<>();
-
-	
-	
-	public Author() {
-	}
-
-	public Author(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
 
 	
 	
 	public long getId() {
 		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -66,16 +49,6 @@ public class Author {
 		this.lastName = lastName;
 	}
 
-	public Set<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(Set<Book> books) {
-		this.books = books;
-	}
-
-	
-	
 	@Override
 	public boolean equals(Object o) {
 

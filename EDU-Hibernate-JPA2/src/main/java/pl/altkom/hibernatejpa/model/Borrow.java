@@ -14,51 +14,47 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
 @Entity
 public class Borrow {
 	
 	@Id
+	@Column(name="BORROW_ID")
 	//@GeneratedValue(generator = "ID_GENERATOR")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotNull
-    @Column(name="BORROW_DATE", nullable=false)
-	private LocalDate borrowDate;
-	
-	@NotNull
-    @Column(name="RETURN_DATE", nullable=false)
-	private LocalDate returnDate;
+//	@NotNull
+//    @Column(name="BORROW_DATE")
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//	private LocalDate borrowDate;
+//	
+//	@NotNull
+//    @Column(name="RETURN_DATE")
+//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//	private LocalDate returnDate;
 	
 	@ManyToOne(fetch = FetchType.LAZY) // Defaults to EAGER
 	@JoinColumn(name = "BORROWER_ID", nullable = false)
+//	@JsonManagedReference
 	private Borrower borrower;
 	
 	//one-to-one with join table; the ITEM_ID column in join table ITEM_BORROW is unique
 	//therefore an item can be in only one borrow
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "ITEM_BORROW",
+        name = "BOOK_BORROW",
         joinColumns =
             @JoinColumn(name = "BORROW_ID"),
         inverseJoinColumns =
-            @JoinColumn(name = "ITEM_ID",
+            @JoinColumn(name = "BOOK_ID",
                         nullable = false,
                         unique = true)
     )
-	private Item item;
-
-	
-	
-	public Borrow() {}
-
-	public Borrow(LocalDate borrowDate, LocalDate returnDate, Borrower borrower, Item item) {
-		super();
-		this.borrowDate = borrowDate;
-		this.returnDate = returnDate;
-		this.borrower = borrower;
-		this.item = item;
-	}
+	private Book book;
 
 	
 	
@@ -66,21 +62,25 @@ public class Borrow {
 		return id;
 	}
 
-	public LocalDate getBorrowDate() {
-		return borrowDate;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public void setBorrowDate(LocalDate borrowDate) {
-		this.borrowDate = borrowDate;
-	}
-
-	public LocalDate getReturnDate() {
-		return returnDate;
-	}
-
-	public void setReturnDate(LocalDate returnDate) {
-		this.returnDate = returnDate;
-	}
+//	public LocalDate getBorrowDate() {
+//		return borrowDate;
+//	}
+//
+//	public void setBorrowDate(LocalDate borrowDate) {
+//		this.borrowDate = borrowDate;
+//	}
+//
+//	public LocalDate getReturnDate() {
+//		return returnDate;
+//	}
+//
+//	public void setReturnDate(LocalDate returnDate) {
+//		this.returnDate = returnDate;
+//	}
 
 	public Borrower getBorrower() {
 		return borrower;
@@ -90,16 +90,14 @@ public class Borrow {
 		this.borrower = borrower;
 	}
 
-	public Item getItem() {
-		return item;
+	public Book getBook() {
+		return book;
 	}
 
-	public void setItem(Item item) {
-		this.item = item;
+	public void setBook(Book book) {
+		this.book = book;
 	}
-	
-	
-	
+
 	@Override
 	public boolean equals(Object o) {
 
@@ -111,19 +109,15 @@ public class Borrow {
 
 		Borrow other = (Borrow) o;
 
-		return other.borrowDate.equals(borrowDate) && 
-				other.returnDate.equals(returnDate) &&
-				other.borrower.equals(borrower) &&
-				other.item.equals(item);
+		return 	other.borrower.equals(borrower) &&
+				other.book.equals(book);
 	}
 
 	@Override
     public int hashCode() {
         int result = 17;
-        result = 31 * result + borrowDate.hashCode();
-        result = 31 * result + returnDate.hashCode();
         result = 31 * result + borrower.hashCode();
-        result = 31 * result + item.hashCode();
+        result = 31 * result + book.hashCode();
         return result;
     }
 

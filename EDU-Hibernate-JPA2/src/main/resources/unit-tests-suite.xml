@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="EDU-Hibernate-JPA2-Unit-Tests-Suite">
+  
+    <test name="borrower-service-test">
+        <classes>
+            <class name="pl.altkom.hibernatejpa.service.BorrowerServiceImplTest" />
+        </classes>
+    </test>
+
+</suite>

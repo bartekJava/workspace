@@ -12,27 +12,32 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class Borrower {
 	
 	@Id
+	@Column(name="BORROWER_ID")
 	//@GeneratedValue(generator = "ID_GENERATOR")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotNull
-    @Column(name="FIRST_NAME", nullable=false)
+    @Column(name="FIRST_NAME")
 	private String firstName;
 	
 	@NotNull
-    @Column(name="LAST_NAME", nullable=false)
+    @Column(name="LAST_NAME")
 	private String lastName;
 	
 	@NotNull
-    @Column(name="SSN", nullable=false)
+    @Column(name="SSN", unique = true)
     @Length(min = 11, max = 11)
 	private String ssn;
 	
@@ -40,6 +45,8 @@ public class Borrower {
 	private String gender;
 	
 	@OneToMany(mappedBy = "borrower", fetch = FetchType.LAZY)
+	@Size(max = 3)
+	@JsonBackReference
 	private Set<Borrow> borrows = new HashSet<>();
 
 	
@@ -98,9 +105,9 @@ public class Borrower {
 		return id;
 	}
 	
-	/*public void setId(long id) {
+	public void setId(long id) {
 		this.id = id;
-	}*/
+	}
 
 
 	@Override

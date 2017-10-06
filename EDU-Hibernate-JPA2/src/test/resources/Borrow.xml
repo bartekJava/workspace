@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+	<item ITEM_ID = "1" AVAILIBLE="Y" ISBN="9781932394887" TITLE="Java Persistence with Hibernate"/>
+	<item ITEM_ID = "2" AVAILIBLE="Y" ISBN="978-1-449-33437-6" TITLE="Just Hibernate"/>
+	
+	<book ITEM_ID = "1" PUBLISH_YEAR="2006-10-1"/>
+	<book ITEM_ID = "2" PUBLISH_YEAR="2014-06-27"/>
+	
+	<author AUTHOR_ID = "1" FIRST_NAME="Christian" LAST_NAME="Bauer" />
+	<author AUTHOR_ID = "2" FIRST_NAME="Gavin" LAST_NAME="King" />
+	<author AUTHOR_ID = "3" FIRST_NAME="Madhusudhan" LAST_NAME="Konda" />
+	
+	<author_book AUTHOR_ID = "1" ITEM_ID = "1"/>
+	<author_book AUTHOR_ID = "2" ITEM_ID = "1"/>
+	<author_book AUTHOR_ID = "3" ITEM_ID = "2"/>
+	
+	<borrower id="1" FIRST_NAME="John" LAST_NAME="Doe" SSN="70010100111" />
+
+</dataset>

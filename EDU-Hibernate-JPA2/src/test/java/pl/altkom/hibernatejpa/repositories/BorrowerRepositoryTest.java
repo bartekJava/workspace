@@ -37,7 +37,7 @@ public class BorrowerRepositoryTest extends EntityRepositoryTest {
 		Assert.assertNotNull(borrowerRepository.findByFirstName("John"));
 	}
 	
-	@Test(expectedExceptions= ConstraintViolationException.class)
+	@Test(expectedExceptions = ConstraintViolationException.class)
 	public void checkSsnLengthConstraint() {
 		borrowerRepository.save(getInvalidSsnBorrower());
 	}
@@ -52,10 +52,12 @@ public class BorrowerRepositoryTest extends EntityRepositoryTest {
 	@Test
 	public void updateBorrower() {
 		Borrower borrower = borrowerRepository.findByFirstName("John");
-		borrower.setSsn("70010100112");
+		borrower.setLastName("Smith");
+//		borrower.setSsn("70010100112");
 		borrowerRepository.save(borrower);
 		Borrower updatedBorrower = borrowerRepository.findByFirstName("John");
-		Assert.assertEquals(updatedBorrower.getSsn(), "70010100112");
+//		Assert.assertEquals(updatedBorrower.getSsn(), "70010100112");
+		Assert.assertEquals(updatedBorrower.getLastName(), "Smith");
 	}
 	
 	@Test
@@ -78,6 +80,16 @@ public class BorrowerRepositoryTest extends EntityRepositoryTest {
 		borrower.setFirstName("Name");
 		borrower.setLastName("Lastname");
 		borrower.setSsn("900303003334");
+		
+		return borrower;
+	}
+	
+	public Borrower getExistingBorrower() {
+		Borrower borrower = new Borrower();
+		//borrower.setId(1L);
+		borrower.setFirstName("John");
+		borrower.setLastName("Doe");
+		borrower.setSsn("70010100111");
 		
 		return borrower;
 	}
