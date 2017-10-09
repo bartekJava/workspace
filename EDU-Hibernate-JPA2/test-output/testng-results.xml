@@ -1,47 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7918" started-at="2017-10-04T11:07:24Z" finished-at="2017-10-04T11:07:32Z">
+  <suite name="Default suite" duration-ms="7665" started-at="2017-10-09T09:46:47Z" finished-at="2017-10-09T09:46:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7918" started-at="2017-10-04T11:07:24Z" finished-at="2017-10-04T11:07:32Z">
+    <test name="Default test" duration-ms="7665" started-at="2017-10-09T09:46:47Z" finished-at="2017-10-09T09:46:55Z">
       <class name="pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest">
-        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@243c4f91]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="7661" started-at="2017-10-04T13:07:24Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2017-10-04T13:07:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@243c4f91]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2017-10-04T13:07:24Z" finished-at="2017-10-04T13:07:24Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="9" started-at="2017-10-09T11:46:47Z" finished-at="2017-10-09T11:46:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@243c4f91]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="16" started-at="2017-10-04T13:07:32Z" finished-at="2017-10-04T13:07:32Z">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="6833" started-at="2017-10-09T11:46:47Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2017-10-09T11:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="6" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBorrow()]]>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getAuthor()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="getBorrow()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@243c4f91]" name="getBorrow" duration-ms="38" started-at="2017-10-04T13:07:32Z" finished-at="2017-10-04T13:07:32Z">
+        <test-method status="PASS" signature="getAuthor()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="getAuthor" duration-ms="417" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getBorrow -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@243c4f91]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2017-10-04T13:07:32Z" finished-at="2017-10-04T13:07:32Z">
+        </test-method> <!-- getAuthor -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBorrow()]]>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getAuthor()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@243c4f91]" name="springTestContextAfterTestClass" is-config="true" duration-ms="168" started-at="2017-10-04T13:07:32Z" finished-at="2017-10-04T13:07:32Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBook()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="getBook()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="getBook" duration-ms="32" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBook -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="2" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBook()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="6" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBook2()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="getBook2()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="getBook2" duration-ms="21" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBook2 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="3" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBook2()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="5" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBookByTitleRegex()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="getBookByTitleRegex()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="getBookByTitleRegex" duration-ms="12" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBookByTitleRegex -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="3" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBookByTitleRegex()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBorrowsRepo()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="getBorrowsRepo()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="getBorrowsRepo" duration-ms="8" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBorrowsRepo -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="4" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBorrowsRepo()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="5" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBorrowsService()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="getBorrowsService()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="getBorrowsService" duration-ms="11" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBorrowsService -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="8" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getBorrowsService()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="3" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getGenre()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="getGenre()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="getGenre" duration-ms="9" started-at="2017-10-09T11:46:54Z" finished-at="2017-10-09T11:46:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getGenre -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="63" started-at="2017-10-09T11:46:55Z" finished-at="2017-10-09T11:46:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest.getGenre()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest@2c767a52]" name="springTestContextAfterTestClass" is-config="true" duration-ms="138" started-at="2017-10-09T11:46:55Z" finished-at="2017-10-09T11:46:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->

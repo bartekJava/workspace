@@ -6,10 +6,10 @@
       <class name="pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest">
         <methods>
           <include name="springTestContextBeforeTestClass"/>
+          <include name="getBookByTitleRegex"/>
           <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestMethod"/>
-          <include name="getBorrow"/>
           <include name="springTestContextAfterTestMethod"/>
         </methods>
       </class> <!-- pl.altkom.hibernatejpa.repositories.BookRepoTest$RepositoriesEmptyDataTest -->

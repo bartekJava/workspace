@@ -23,5 +23,7 @@ public interface BookService {
     List<Book> findAllBooks();
     
     boolean isBookExist(Book book);
+    
+    List<Book> findByTitleRegex(String regex);
      
 }

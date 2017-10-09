@@ -16,16 +16,32 @@ export class BooksComponent implements OnInit {
 
   books: Book[];
   selectedBook: Book;
-  // currentBook: Book;
   borrows: Borrow[];
   borrowToDelete: Borrow;
-  borrowedBooksIds: number[];
 
   constructor(
     private router: Router, 
     private bookService: BookService,
     private borrowService: BorrowService
   ) {}
+
+
+  ngOnInit(): void {
+    this.getBooks()
+    .then(
+      () => this.getBorrows()
+      .then(
+        () => this.books.forEach(book => book.borrower = 
+          (this.findBorrowsByBookId(book)) 
+          ? (this.findBorrowsByBookId(book)).borrower.firstName + " " + (this.findBorrowsByBookId(book)).borrower.lastName 
+          : "availible")
+      )
+    );
+  }
+
+  onSelect(book: Book): void {
+    this.selectedBook = book;
+  }
 
   getBooks(): Promise<Book[]> {
     return this.bookService.getBooks().then(books => this.books = books);
@@ -34,42 +50,11 @@ export class BooksComponent implements OnInit {
   getBorrows(): Promise<void> {
     return this.borrowService.getBorrows().then(borrows => {
       this.borrows = borrows;
-      this.borrowedBooksIds = this.borrows.map(borrow => borrow.book.id as number);
     });
   }
 
-  ngOnInit(): void {
-    this.getBooks()
-    .then(
-      () => this.getBorrows()
-      .then(
-        () => this.books.forEach(book => book.borrower = 
-          (this.borrows.find(borrow => borrow.book.id === book.id)) ?
-          (this.borrows.find(borrow => borrow.book.id === book.id)).borrower.lastName : "availible")
-      )
-    );
-  }
-
-  onSelect(book: Book): void {
-    this.selectedBook = book;
-    console.log(this.selectedBook);
-  }
-
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedBook.id ]);
-  }
-
-  gotoCreate(): void {
-    this.router.navigate(['/create']);
-  }
-
-  // getCurrentBook(book: Book): void {
-  //   this.currentBook = book;
-  //   console.log(this.currentBook);
-  // }
-
-  logSomething(): void {
-    console.log();
+  findBorrowsByBookId(book): Borrow {
+    return this.borrows.find(borrow => borrow.book.id === book.id);
   }
 
   edit(): void {
@@ -95,19 +80,14 @@ export class BooksComponent implements OnInit {
         if (this.selectedBook === book) { this.selectedBook = null; }
       });
     }
-    
   }
 
-  // TODO: Remove this when we're done
-  get selectedBookDiagnostic() { return JSON.stringify(this.selectedBook); }
+  gotoDetail(): void {
+    this.router.navigate(['/detail', this.selectedBook.id ]);
+  }
 
-  // add(title: string): void {
-  //   title = title.trim();
-  //   if (!title) { return; }
-  //   this.bookService.create(title)
-  //     .then(book => {
-  //       this.books.push(book);
-  //       this.selectedBook = null;
-  //     });
-  // }
+  gotoCreate(): void {
+    this.router.navigate(['/create', 'new']);
+  }
+
 }

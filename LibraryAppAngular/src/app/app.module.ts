@@ -9,7 +9,6 @@ import { AppRoutingModule }     from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookDetailComponent } from './book-detail.component';
 import { BooksComponent } from './books.component';
-import { DashboardComponent } from './dashboard.component';
 import { BookSearchComponent }  from './book-search.component';
 import { BookCreationComponent }  from './book-creation.component';
 
@@ -23,7 +22,6 @@ import { BorrowerService } from './borrower.service'
     AppComponent,
     BookDetailComponent,
     BooksComponent,
-    DashboardComponent,
     BookSearchComponent,
     BookCreationComponent
 

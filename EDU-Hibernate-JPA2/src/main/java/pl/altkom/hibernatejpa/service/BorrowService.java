@@ -2,7 +2,6 @@ package pl.altkom.hibernatejpa.service;
 
 import java.util.List;
 
-import pl.altkom.hibernatejpa.model.Book;
 import pl.altkom.hibernatejpa.model.Borrow;
 import pl.altkom.hibernatejpa.model.Borrower;
 
@@ -23,8 +22,6 @@ public interface BorrowService {
 	boolean isBorrowExist(Borrow borrow);
 
 	void deleteAllBorrows();
-	
-	Borrow findByBook(Book book);
 	
 	Borrow findByBookId(long id);
 	

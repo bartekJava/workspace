@@ -18,7 +18,6 @@ import { Borrow } from './borrow';
 export class BookDetailComponent implements OnInit {
 
     book: Book;
-    // borrower: string;
     borrower: Borrower;
     borrowers: Borrower[];
     borrow = new Borrow(undefined, undefined, undefined);
@@ -32,20 +31,17 @@ export class BookDetailComponent implements OnInit {
         private location: Location
       ) {}
 
+
       ngOnInit(): void {
           this.route.paramMap
           .switchMap((params: ParamMap) => this.bookService.getBook(+params.get('id')))
-          // .toPromise()
-          // .then(book => this.book = book);
           .subscribe(book => {
             this.book = book;
             this.borrowService.getBorrowByBookId(book.id)
             .then(borrow => {
               this.existingBorrow = borrow;
-              console.log(this.existingBorrow)
             })
           })
-
           this.getBorrowers();
       }
 
@@ -53,10 +49,7 @@ export class BookDetailComponent implements OnInit {
         this.location.back();
       }
 
-      save(): void {
-        // this.book.borrower = this.borrower;
-        // this.bookService.update(this.book)
-        //   .then(() => this.goBack());
+      borrowBook(): void {
         this.borrow.book = this.book;
         this.borrow.borrower = this.borrower;
 
@@ -69,8 +62,5 @@ export class BookDetailComponent implements OnInit {
       getBorrowers(): void {
         this.borrowerService.getBorrowers().then(borrowers => this.borrowers = borrowers);
       }
-
-      get bookDiagnostic() { return JSON.stringify(this.book); }
-      get borrowerDiagnostic() { return JSON.stringify(this.borrower); }
 
 }

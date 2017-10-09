@@ -21,7 +21,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-//import pl.altkom.hibernatejpa.utils.DbTypePropertyCondition;
+import pl.altkom.hibernatejpa.utils.DbTypePropertyCondition;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "pl.altkom.hibernatejpa.repositories")

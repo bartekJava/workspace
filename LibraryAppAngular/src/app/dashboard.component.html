@@ -1,9 +1,0 @@
-<h3>Best Selling Books</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let book of books" [routerLink]="['/detail', book.id]" class="col-1-4">
-    <div class="module book">
-      <h4>{{book.title}}</h4>
-    </div>
-  </a>
-</div>
-<book-search></book-search>

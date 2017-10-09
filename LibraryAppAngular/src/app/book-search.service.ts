@@ -13,7 +13,8 @@ export class BookSearchService {
  
   search(term: string): Observable<Book[]> {
     return this.http
-               .get(`api/books/?title=${term}`) //changed '?name' to '?title'
-               .map(response => response.json().data as Book[]);
+              //  .get(`api/books/?title=${term}`) //changed '?name' to '?title'
+               .get(`http://localhost:8081/EDU-Hibernate-JPA2-0.0.1-SNAPSHOT/book/title/${term}`) //changed '?name' to '?title'
+               .map(response => response.json() as Book[]);
   }
 }

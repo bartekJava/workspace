@@ -1,8 +1,5 @@
 <div class="card-body">
   <h4 class="card-title">List of books</h4>
-  {{"Borrowed books: " + borrowedBooksIds}}
-  <!-- {{borrows[1].book.title}} -->
-  
   <div>
     <table class="table table-hover table-fixed">
       <thead class="thead-inverse">
@@ -38,13 +35,12 @@
           <td>{{book.pageCount}}</td>
           <td>{{book.publishDate}}</td>
           <td>{{book.borrower}}</td>
-          <!-- <td (DOMNodeInserted)="logSomething()">{{borrows[0].borrower.lastName}}</td> -->
         </tr>
       </tbody>
     </table>
   </div>
   <br>
-  <div *ngIf="selectedBook" class="card border-secondary mb-3 w-50">
+  <div *ngIf="selectedBook" class="card border-secondary mb-3 w-40">
     <h5 class="card-header">{{selectedBook.title | uppercase}}</h5>
     <div class="card-body">
       <button class="btn btn-dark" (click)="gotoDetail()">View Details</button>
@@ -52,25 +48,6 @@
       <button class="btn btn-dark" (click)="delete(selectedBook); $event.stopPropagation()">Delete</button>
     </div>
   </div>
-  <!-- <div>
-    <label>Book title:</label> <input #bookTitle />
-    <button (click)="add(bookTitle.value); bookTitle.value=''">Add</button>
-  </div> -->
   <button id="add-button" class="btn btn-dark" (click)="gotoCreate()">Add book</button>
   <book-search></book-search>
 </div>
-
-<!-- <br><br><br><br><br><br>
-<ul class="books">
-  <li *ngFor="let book of books" [class.selected]="book === selectedBook" (click)=onSelect(book)>
-    <span class="badge">{{book.id}}</span>
-    <span>{{book.isbnNumber}}</span>
-    <span>{{book.title}}</span>
-    <span>{{book.author}}</span>
-    <span>{{book.genre}}</span>
-    <span>{{book.pageCount}}</span>
-    <span>{{book.publishDate}}</span>
-    <span>{{book.borrower}}</span>
-    <button class="delete" (click)="delete(book); $event.stopPropagation()">x</button>
-  </li>
-</ul> -->

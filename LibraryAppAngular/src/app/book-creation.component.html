@@ -1,125 +1,86 @@
 <div class="container-fluid">
-    <div class="card" style="width: 50rem;">
-        <div class="card-body">
-            <div [hidden]="submitted">
-                <h4 class="card-title">Book form</h4>
-                <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
-                    {{editMode}} 
-                    {{diagnostic}}
-                    <!-- <div class="form-group row">
-                        <label for="idNumber" class="col-sm-3 col-form-label">ID</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="idNumber" required [(ngModel)]="model.id" name="idNumber" #idNumber="ngModel">
-                            <div [hidden]="idNumber.valid || idNumber.pristine" class="alert alert-danger">
-                                ID number is required
+        <div class="card" style="width: 50rem;">
+            <div class="card-body">
+                <div [hidden]="submitted">
+                    <h4 class="card-title">Book form</h4>
+                    <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+                        <div class="form-group row">
+                            <label for="isbn" class="col-sm-3 col-form-label">ISBN</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control form-control-sm" id="isbn" required [(ngModel)]="model.isbnNumber" name="isbn" #isbn="ngModel">
+                                <div [hidden]="isbn.valid || isbn.pristine" class="alert alert-danger">
+                                    ISBN number is required
+                                </div>
                             </div>
                         </div>
-                    </div> -->
-
-                    <div class="form-group row">
-                        <label for="isbn" class="col-sm-3 col-form-label">ISBN</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="isbn" required [(ngModel)]="model.isbnNumber" name="isbn" #isbn="ngModel">
-                            <div [hidden]="isbn.valid || isbn.pristine" class="alert alert-danger">
-                                ISBN number is required
+    
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-3 col-form-label">Title</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control form-control-sm" id="title" required [(ngModel)]="model.title" name="title" #title="ngModel">
+                                <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+                                    Title is required
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="title" class="col-sm-3 col-form-label">Title</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="title" required [(ngModel)]="model.title" name="title" #title="ngModel">
-                            <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
-                                Title is required
+                        <div class="form-group row">
+                            <label for="author" class="col-sm-3 col-form-label">Authors</label>
+                            <div class="col-sm-9">
+                                <select class="form-control form-control-sm" id="author" required [(ngModel)]="model.author" name="author">
+                                    <option *ngFor="let author of authors" [ngValue]="author">{{author.firstName+" "+author.lastName}}</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- <div class="form-group row">
-                        <label for="author-first-name" class="col-sm-3 col-form-label">Author first name</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="author-first-name" required [(ngModel)]="author.firstName" name="author-first-name" #authorFirstName="ngModel">
-                            <div [hidden]="authorFirstName.valid || authorFirstName.pristine" class="alert alert-danger">
-                                Author first name is required
+    
+                        <div class="form-group row">
+                            <label for="genres" class="col-sm-3 col-form-label">Genres</label>
+                            <div class="col-sm-9">
+                                <select multiple class="form-control form-control-sm" id="genres" required [(ngModel)]="model.genres" name="genres">
+                                    <option *ngFor="let gen of genres" [value]="gen">{{gen.type}}</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="author-last-name" class="col-sm-3 col-form-label">Author last name</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="author-last-name" required [(ngModel)]="author.lastName" name="author-last-name" #authorLastName="ngModel">
-                            <div [hidden]="authorLastName.valid || authorLastName.pristine" class="alert alert-danger">
-                                Author last name is required
+    
+                        <div class="form-group row">
+                            <label for="pageCount" class="col-sm-3 col-form-label">Page count</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control form-control-sm" id="pageCount" required [(ngModel)]="model.pageCount" name="pageCount"
+                                    #pageCount="ngModel">
+                                <div [hidden]="pageCount.valid || pageCount.pristine" class="alert alert-danger">
+                                    Page count is required
+                                </div>
                             </div>
                         </div>
-                    </div> -->
-
-                    <div class="form-group row">
-                        <label for="author" class="col-sm-3 col-form-label">Authors</label>
-                        <div class="col-sm-9">
-                            <select class="form-control form-control-sm" id="author" required [(ngModel)]="model.author" name="author">
-                                <option *ngFor="let author of authors" [ngValue]="author">{{author.firstName+" "+author.lastName}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    {{selectedAuthorDiagnostic}}
-
-                    <div class="form-group row">
-                        <label for="genres" class="col-sm-3 col-form-label">Genres</label>
-                        <div class="col-sm-9">
-                            <select multiple class="form-control form-control-sm" id="genres" required [(ngModel)]="model.genres" name="genres">
-                                <option *ngFor="let gen of genres" [value]="gen">{{gen.type}}</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="pageCount" class="col-sm-3 col-form-label">Page count</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="pageCount" required [(ngModel)]="model.pageCount" name="pageCount"
-                                #pageCount="ngModel">
-                            <div [hidden]="pageCount.valid || pageCount.pristine" class="alert alert-danger">
-                                Page count is required
+    
+                        <div class="form-group row">
+                            <label for="publishDate" class="col-sm-3 col-form-label">Publish date</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control form-control-sm" id="publishDate" required [(ngModel)]="model.publishDate" name="publishDate"
+                                    #publishDate="ngModel">
+                                <div [hidden]="publishDate.valid || publishDate.pristine" class="alert alert-danger">
+                                    Publish date is required
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="publishDate" class="col-sm-3 col-form-label">Publish date</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="publishDate" required [(ngModel)]="model.publishDate" name="publishDate"
-                                #publishDate="ngModel">
-                            <div [hidden]="publishDate.valid || publishDate.pristine" class="alert alert-danger">
-                                Publish date is required
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- <div class="form-group row">
-                        <label for="borrower" class="col-sm-3 col-form-label">Borrower</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="borrower" [(ngModel)]="model.borrower" name="borrower">
-                        </div>
-                    </div> -->
-                    <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Submit</button>
-                    <button type="button" class="btn btn-dark" (click)="newBook(); bookForm.reset()" *ngIf="!editMode">New Book</button>
-                </form>
-            </div>
-            <div [hidden]="!submitted||editMode">
-                <h4 class="card-title">Success!</h4>
-                <div class="alert alert-success" role="alert">
-                    Book successfully created!
+                        <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Submit</button>
+                        <button type="button" class="btn btn-dark" (click)="newBook(); bookForm.reset()" *ngIf="!editMode">New Book</button>
+                    </form>
                 </div>
-            </div>
-            <div [hidden]="!submitted||!editMode">
-                <h4 class="card-title">Success!</h4>
-                <div class="alert alert-success" role="alert">
-                    Book successfully edited!
+                <div [hidden]="!submitted||editMode">
+                    <h4 class="card-title">Success!</h4>
+                    <div class="alert alert-success" role="alert">
+                        Book successfully created!
+                    </div>
                 </div>
+                <div [hidden]="!submitted||!editMode">
+                    <h4 class="card-title">Success!</h4>
+                    <div class="alert alert-success" role="alert">
+                        Book successfully edited!
+                    </div>
+                </div>
+                <button id="back-button" class="btn btn-dark" (click)="gotoList()">Back to list</button>
             </div>
-            <button id="back-button" class="btn btn-dark" (click)="gotoList()">Back to list</button>
         </div>
     </div>
-</div>

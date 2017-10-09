@@ -15,7 +15,7 @@ import { AuthorService } from './author.service'
 })
 export class BookCreationComponent implements OnInit{
     
-    editMode = true;
+    editMode = false;
     model = new Book(undefined, '', '', undefined, [], undefined, '', undefined);
     authors: Author[];
     selectedAuthor: Author;
@@ -36,6 +36,7 @@ export class BookCreationComponent implements OnInit{
         .subscribe(
             book => {
                 this.model = book
+                console.log("flag switch")
                 this.editMode = true;
             },
             error => this.editMode = false
@@ -47,9 +48,7 @@ export class BookCreationComponent implements OnInit{
         if(!this.editMode) {
             this.bookService.create(this.model);
         } else {
-            // this.authorService.updateAuthor(this.author);
             this.bookService.update(this.model);
-            // console.log("updated")
         }
     }
 
@@ -63,6 +62,7 @@ export class BookCreationComponent implements OnInit{
 
     newBook() {
         this.model = new Book(undefined, '', '', undefined, [], undefined, '', undefined);
+        this.editMode = false;
     }
 
     gotoList(): void {

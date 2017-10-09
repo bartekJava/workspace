@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pl.altkom.hibernatejpa.model.Book;
 import pl.altkom.hibernatejpa.model.Borrow;
 import pl.altkom.hibernatejpa.model.Borrower;
 import pl.altkom.hibernatejpa.repositories.BorrowRepository;
@@ -48,12 +47,6 @@ public class BorrowServiceImpl implements BorrowService{
 		borrowRepository.deleteAll();
 	}
 
-	@Override
-	public Borrow findByBook(Book book) {
-		return borrowRepository.findByBook(book);
-	}
-
-	@Override
 	public Borrow findByBookId(long id) {
 		return borrowRepository.findByBookId(id);
 	}

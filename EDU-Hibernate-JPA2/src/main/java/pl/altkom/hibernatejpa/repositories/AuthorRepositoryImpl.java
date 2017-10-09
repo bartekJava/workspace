@@ -18,7 +18,8 @@ public class AuthorRepositoryImpl implements AuthorRepositoryCustom{
 		TypedQuery<Author> query = entityManager.createQuery(
 				"select a from Author a where a.firstName = :firstName and a.lastName = :lastName", Author.class
 				).setParameter("firstName", firstName).setParameter("lastName", lastName);
-		return null;
+		Author result = query.getSingleResult();
+		return result;
 	}
 
 }

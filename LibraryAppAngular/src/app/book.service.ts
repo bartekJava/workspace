@@ -21,7 +21,7 @@ export class BookService {
     }
 
     getBook(id: number): Promise<Book> {
-        const url = `${this.booksUrl}/${id}`;
+        const url = `${this.booksUrl}${id}`;
         return this.http.get(url)
             .toPromise()
             .then(response => response.json() as Book)
@@ -29,7 +29,7 @@ export class BookService {
     }
 
     update(book: Book): Promise<Book> {
-        const url = `${this.booksUrl}/${book.id}`;
+        const url = `${this.booksUrl}${book.id}`;
         return this.http
           .put(url, JSON.stringify(book), {headers: this.headers})
           .toPromise()

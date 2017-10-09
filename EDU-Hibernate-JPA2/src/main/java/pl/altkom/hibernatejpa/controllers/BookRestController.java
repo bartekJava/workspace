@@ -51,10 +51,23 @@ public class BookRestController {
 		Book book = bookService.findById(id);
 
 		if (book == null) {
-			return new ResponseEntity<Book>(HttpStatus.CONTINUE);
+			return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 		}
 
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
+	}
+	
+	
+	
+	@RequestMapping(value = "/book/title/{regex}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Book>> getBookByTitleRegex(@PathVariable("regex") String regex) {
+		List<Book> books = bookService.findByTitleRegex(regex);
+
+		if (books.isEmpty()) {
+			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);
+		}
+
+		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
 	}
 
 	

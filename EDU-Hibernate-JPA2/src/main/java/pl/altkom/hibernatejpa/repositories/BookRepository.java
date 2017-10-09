@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import pl.altkom.hibernatejpa.model.Book;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Long> {
+public interface BookRepository extends JpaRepository<Book, Long>, BookRepositoryCustom {
 	
 	Book findByTitle(String title);
 	
