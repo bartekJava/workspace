@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of books" [class.selected]="book === selectedBook" (click)=onSelect(book)>
+        <tr *ngFor="let book of books" [class.selected]="book === selectedBook" (click)="onSelect(book)">
           <th scope="row">{{book.id}}</th>
           <td>{{book.isbnNumber}}</td>
           <td>{{book.title}}</td>
@@ -37,9 +37,8 @@
           </td>
           <td>{{book.pageCount}}</td>
           <td>{{book.publishDate}}</td>
-          <!-- <td>{{book.borrower ? book.borrower : 'availible'}}</td> -->
-          <!-- <td>{{borrowedBooksIds.find(id => id == 1)}}</td> -->
-          <td>TEMP</td>
+          <td>{{book.borrower}}</td>
+          <!-- <td (DOMNodeInserted)="logSomething()">{{borrows[0].borrower.lastName}}</td> -->
         </tr>
       </tbody>
     </table>

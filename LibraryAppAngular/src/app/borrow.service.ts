@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 import { Borrow } from './borrow';
+import { Book } from './book';
 
 @Injectable()
 export class BorrowService {
@@ -17,6 +18,14 @@ export class BorrowService {
         return this.http.get(this.borrowsUrl)
             .toPromise()
             .then(response => response.json() as Borrow[])
+            .catch(this.handleError);
+    }
+
+    getBorrowByBookId(bookId: number): Promise<Borrow> {
+        const url = `${this.borrowsUrl}book/${bookId}`;
+        return this.http.get(url)
+            .toPromise()
+            .then(response => response.json() as Borrow)
             .catch(this.handleError);
     }
 

@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 
 import { Book } from './book';
 import { Borrow } from './borrow';
-import { BookService } from './book.service'
-import { BorrowService } from './borrow.service'
+import { BookService } from './book.service';
+import { BorrowService } from './borrow.service';
+
 
 @Component({
   selector: 'my-books',
@@ -15,7 +16,7 @@ export class BooksComponent implements OnInit {
 
   books: Book[];
   selectedBook: Book;
-
+  // currentBook: Book;
   borrows: Borrow[];
   borrowToDelete: Borrow;
   borrowedBooksIds: number[];
@@ -26,32 +27,49 @@ export class BooksComponent implements OnInit {
     private borrowService: BorrowService
   ) {}
 
-  getBooks(): void {
-    this.bookService.getBooks().then(books => this.books = books);
+  getBooks(): Promise<Book[]> {
+    return this.bookService.getBooks().then(books => this.books = books);
   }
 
-  getBorrows(): void {
-    this.borrowService.getBorrows().then(borrows => {
+  getBorrows(): Promise<void> {
+    return this.borrowService.getBorrows().then(borrows => {
       this.borrows = borrows;
       this.borrowedBooksIds = this.borrows.map(borrow => borrow.book.id as number);
     });
   }
 
   ngOnInit(): void {
-    this.getBooks();
-    this.getBorrows();
+    this.getBooks()
+    .then(
+      () => this.getBorrows()
+      .then(
+        () => this.books.forEach(book => book.borrower = 
+          (this.borrows.find(borrow => borrow.book.id === book.id)) ?
+          (this.borrows.find(borrow => borrow.book.id === book.id)).borrower.lastName : "availible")
+      )
+    );
   }
 
   onSelect(book: Book): void {
     this.selectedBook = book;
+    console.log(this.selectedBook);
   }
 
   gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedBook.id]);
+    this.router.navigate(['/detail', this.selectedBook.id ]);
   }
 
   gotoCreate(): void {
     this.router.navigate(['/create']);
+  }
+
+  // getCurrentBook(book: Book): void {
+  //   this.currentBook = book;
+  //   console.log(this.currentBook);
+  // }
+
+  logSomething(): void {
+    console.log();
   }
 
   edit(): void {

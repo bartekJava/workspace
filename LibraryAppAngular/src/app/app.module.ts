@@ -26,6 +26,7 @@ import { BorrowerService } from './borrower.service'
     DashboardComponent,
     BookSearchComponent,
     BookCreationComponent
+
   ],
   imports: [
     BrowserModule,

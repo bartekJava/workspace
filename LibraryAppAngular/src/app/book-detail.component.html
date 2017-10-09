@@ -9,8 +9,9 @@
                 <li class="list-group-item"><strong>Genres: </strong><span *ngFor="let genre of book.genres">{{genre.type+" "}}</span></li>
                 <li class="list-group-item"><strong>Page count: </strong>{{book.pageCount}}</li>
                 <li class="list-group-item"><strong>Publish date: </strong>{{book.publishDate}}</li>
-                <li class="list-group-item"><strong>Borrowed / availible: </strong>{{book.borrower ? 'borrwed' : 'availible'}}</li>
-                <li *ngIf=!book.borrower class="list-group-item">
+                <!-- <li class="list-group-item"><strong>Borrowed / availible: </strong>{{book.borrower==='availible' ? 'availible' : 'borrowed'}}</li> -->
+                <li class="list-group-item"><strong>Borrowed / availible: </strong>{{book.borrower}}</li>
+                <li *ngIf="!existingBorrow" class="list-group-item">
                     <div class="row">
                         <div class="col-sm-4"><strong>Select Borrower: </strong></div>
                         <div class="col-sm-8">
@@ -22,7 +23,7 @@
                 </li>
             </ul>
             <button class="btn btn-dark" (click)="goBack()">Back</button>
-            <button *ngIf=!book.borrower class="btn btn-dark" (click)="save()" >Borrow</button>
+            <button *ngIf="!existingBorrow" class="btn btn-dark" (click)="save()" >Borrow</button>
         </div>
     </div>
     {{bookDiagnostic}}

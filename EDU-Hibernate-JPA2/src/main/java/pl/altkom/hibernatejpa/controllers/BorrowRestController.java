@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import pl.altkom.hibernatejpa.model.Book;
 import pl.altkom.hibernatejpa.model.Borrow;
 import pl.altkom.hibernatejpa.service.BorrowService;
 
@@ -42,6 +43,17 @@ public class BorrowRestController {
 	@RequestMapping(value = "/borrow/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Borrow> getBorrow(@PathVariable("id") long id) {
 		Borrow borrow = borrowService.findById(id);
+
+		if (borrow == null) {
+			return new ResponseEntity<Borrow>(HttpStatus.CONTINUE);
+		}
+
+		return new ResponseEntity<Borrow>(borrow, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/borrow/book/{bookId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Borrow> getBorrowByBookId(@PathVariable("bookId") long bookId) {
+		Borrow borrow = borrowService.findByBookId(bookId);
 
 		if (borrow == null) {
 			return new ResponseEntity<Borrow>(HttpStatus.CONTINUE);

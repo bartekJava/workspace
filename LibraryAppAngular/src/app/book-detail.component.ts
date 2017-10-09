@@ -22,6 +22,7 @@ export class BookDetailComponent implements OnInit {
     borrower: Borrower;
     borrowers: Borrower[];
     borrow = new Borrow(undefined, undefined, undefined);
+    existingBorrow: Borrow;
 
     constructor(
         private bookService: BookService,
@@ -34,7 +35,16 @@ export class BookDetailComponent implements OnInit {
       ngOnInit(): void {
           this.route.paramMap
           .switchMap((params: ParamMap) => this.bookService.getBook(+params.get('id')))
-          .subscribe(book => this.book = book);
+          // .toPromise()
+          // .then(book => this.book = book);
+          .subscribe(book => {
+            this.book = book;
+            this.borrowService.getBorrowByBookId(book.id)
+            .then(borrow => {
+              this.existingBorrow = borrow;
+              console.log(this.existingBorrow)
+            })
+          })
 
           this.getBorrowers();
       }
@@ -54,7 +64,6 @@ export class BookDetailComponent implements OnInit {
         
         this.borrowService.create(this.borrow)
         .then(() => this.goBack());
-        
       }
 
       getBorrowers(): void {
